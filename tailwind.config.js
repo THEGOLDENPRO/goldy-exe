@@ -29,7 +29,7 @@ module.exports = {
             "typewriter": ["atwriter"]
         },
         animation: {
-            "flicker": "flicker 0.01s infinite alternate",
+            "flicker": "flicker 0.001s infinite alternate",
         },
         keyframes: {
             flicker: {
@@ -37,7 +37,7 @@ module.exports = {
                     textShadow: "1px 0 0 theme(colors.goldyPink), -2px 0 0 theme(colors.goldyOrangy.300);",
                 },
                 "to" : {
-                    textShadow: "2px 0.5px 2px theme(colors.goldyPink), -1px -0.5px 2px theme(colors.goldyOrangy.300);",
+                    textShadow: "3px 1px 2px theme(colors.goldyPink), -1px -1px 2px theme(colors.goldyOrangy.300);",
                 },
             }
         }
