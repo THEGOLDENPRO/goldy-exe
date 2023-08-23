@@ -4,4 +4,4 @@ Just a script that is ran by GitHub actions to add the CNAME file after website 
 
 CNAME = "blog.devgoldy.xyz"
 
-open("./_build/CNAME", mode="w").write(CNAME)
+open("./src/CNAME", mode="w").write(CNAME)
