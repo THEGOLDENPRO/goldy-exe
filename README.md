@@ -1,6 +1,6 @@
 <div align="center">
 
-  # Goldy.exe Frontend
+  # Goldy.exe
 
   <sub>Frontend for my blog website.</sub>
 
