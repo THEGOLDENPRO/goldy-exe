@@ -16,4 +16,52 @@
     body {
         @apply text-white bg-exeBlack;
     }
+
+    h1, h2, h3, h4 {
+        @apply font-typewriter tracking-widest;
+    }
+}
+
+@layer components {
+    #top-blog {
+        @apply px-[5%] mx-auto max-w-5xl cursor-pointer;
+    }
+
+    #top-blog figure {
+        @apply rounded-3xl overflow-hidden;
+    }
+
+    #top-blog figure img {
+        @apply transition-transform ease-in-out duration-[0.5];
+    }
+
+    #top-blog:hover figure img {
+        @apply scale-[1.2];
+    }    
+    
+    #top-blog h2, h4 {
+        @apply text-center pt-2;
+    }
+
+    #top-blog h2 {
+        @apply font-bold text-4xl mobile:text-xl;
+    }
+
+    #top-blog h4 {
+        @apply text-gray-400;
+    }
+
+
+    .latest-blogs {
+        @apply px-[5%] mx-auto mt-5 inline-grid grid-cols-3;
+    }
+
+    .latest-blogs article {
+        @apply w-60;
+    }
+
+    .latest-blogs article img {
+        
+    }
+
 }

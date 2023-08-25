@@ -1,0 +1,6 @@
+{
+    "name": "goldy-exe",
+    "dependencies": {
+        "tailwindcss": "^3.3.3"
+    }
+}
