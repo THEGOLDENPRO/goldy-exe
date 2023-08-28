@@ -11,15 +11,20 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install -D tailwindcss
+          make npm-install
 
       - name: Tailwind compile input.css
         run: |
-          npx tailwindcss -i ./src/input.css -o ./src/output.css
+          make tailwind
+        
+      - name: Tailwind compile input.css
+        run: |
+          make compile-ts
 
-      - name: Remove input.css
+      - name: Remove input.css and script.ts
         run: |
           rm ./src/input.css
+          rm ./src/script.ts
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
