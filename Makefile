@@ -1,4 +1,7 @@
-build: npm-install tailwind compile-ts
+build: install-deps npm-install tailwind compile-ts
+
+install-deps:
+	pip install -r requirements.txt
 
 npm-install:
 	npm i
@@ -13,7 +16,7 @@ tailwind-watch:
 	npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
 
 run:
-	python scripts/run_dev_server.py
+	uvicorn main:app --reload --port 8083
 
 clean:
 	rm ./src/output.css

@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+watchfiles
+aiofiles
+python-decouple
+jinja2
+aiohttp

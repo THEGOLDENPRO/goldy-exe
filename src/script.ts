@@ -26,6 +26,7 @@ fetch("/dev").then((response: Response) => {
             let key: keyof typeof jsonArray;
 
             for (key in jsonArray) {
+                const hyperlink = document.createElement("a");
                 const article = document.createElement("article");
                 const title = document.createElement("h2");
                 const datePosted = document.createElement("h4")
@@ -37,6 +38,7 @@ fetch("/dev").then((response: Response) => {
 
                 title.innerText = post.name;
                 datePosted.innerText = new Date(post.date_added).toDateString().slice(3);
+                hyperlink.href = "./post/" + post.id;
 
                 bottomDiv.append(title, datePosted);
 
@@ -50,14 +52,16 @@ fetch("/dev").then((response: Response) => {
                 figure.appendChild(thumbnail);
 
                 if (key == 0) {
-                    topPost?.append(
-                        figure.cloneNode(true), 
-                        bottomDiv.cloneNode(true), 
-                    )
+                    let link = hyperlink.cloneNode(true)
+                    link.appendChild(figure.cloneNode(true));
+                    link.appendChild(bottomDiv.cloneNode(true));
+
+                    topPost?.appendChild(link);
                 }
 
                 article.append(figure, bottomDiv);
-                latestPosts?.appendChild(article);
+                hyperlink.append(article);
+                latestPosts?.appendChild(hyperlink);
             }
 
         });
