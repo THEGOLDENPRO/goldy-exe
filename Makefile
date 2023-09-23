@@ -1,8 +1,23 @@
-build:
-	echo "No build UwU"
+build: install-deps npm-install tailwind
+
+install-deps:
+	pip install -r requirements.txt
+
+npm-install:
+	npm i
+
+compile-ts:
+	tsc ./web/script.ts
+
+tailwind:
+	npx tailwindcss -i ./web/input.css -o ./web/output.css
+
+tailwind-watch:
+	npx tailwindcss -i ./web/input.css -o ./web/output.css --watch
 
 run:
-	npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+	uvicorn main:app --reload --port 8083
 
 clean:
-	rm ./src/output.css
+	rm ./web/output.css
+	rm ./web/script.js

@@ -1,0 +1,9 @@
+version: "3"
+services:
+
+    goldy_exe:
+        build: https://github.com/THEGOLDENPRO/goldy-exe.git
+        ports:
+            - 8000:8000
+        environment:
+            ROOT_PATH: ""
