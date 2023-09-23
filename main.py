@@ -6,7 +6,8 @@ from decouple import config
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from fastapi.responses import FileResponse, HTMLResponse
+from fastapi.exceptions import HTTPException
+from fastapi.responses import HTMLResponse
 from aiohttp import ClientSession
 
 __all__ = ("app",)
@@ -32,14 +33,37 @@ http_client = ClientSession()
 templates = Jinja2Templates(directory = "templates")
 
 @app.get("/")
-async def index():
-    return FileResponse("./src/index.html")
+async def index(request: Request):
+    posts = []
+
+    async with http_client.request("GET", API_URL + "/posts") as r:
+        if r.ok:
+            for post in await r.json():
+               posts.append(
+                   {
+                       "id": post.get("id"),
+                       "name": post.get("name"),
+                       "thumbnail_url": CDN_URL + post.get("thumbnail") if post.get("thumbnail") is not None else None,
+                       "date_added": datetime.fromisoformat(post.get("date_added")).strftime("%b %d %Y")
+                   }
+               )
+
+    return templates.TemplateResponse(
+        "home.html", {
+            "request": request,
+            "top_post": None if posts == [] else posts[0],
+            "posts": posts
+        }
+    )
 
 @app.get("/post/{id}", response_class = HTMLResponse)
 async def read_item(request: Request, id: int):
     post = {}
 
     async with http_client.request("GET", API_URL + f"/post/{id}") as r:
+        if not r.ok:
+            raise HTTPException(404, "Hey what you doing here, there's no such post! Stop lurking, smh")
+
         post = await r.json()
 
     return templates.TemplateResponse(
@@ -55,4 +79,4 @@ async def read_item(request: Request, id: int):
         }
     )
 
-app.mount("/", StaticFiles(directory = "src"))
+app.mount("/", StaticFiles(directory = "web"))
