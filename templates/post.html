@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Goldy.exe</title>
+
+        <meta content="{{ name }}" property="og:title">
+        <meta content="{{ description }}" property="og:description">
+        <meta content="Goldy.exe" property="og:site_name">
+        <meta name="theme-color" content="rgb({{ rgb_colour }})">
+        <meta content="{{ thumbnail_url }}" property='og:image'>
+
+        <link rel="stylesheet" href="../output.css">
+    </head>
+
+    <body class="pb-5">
+        <header>
+            <div class="text-7xl mobile:text-4xl font-bold font-hacked text-center py-5 select-none animate-flicker drop-shadow-flicker">
+                <a href="..">
+                    <span>Goldy.exe</span>
+                </a>
+            </div>
+        </header>
+
+        <div id="main-post" class="px-[5%] mx-auto max-w-5xl">
+            <div id="top-post" class="!cursor-default pointer-events-none">
+                <figure>
+                    <img src="{{ thumbnail_url }}">
+                </figure>
+
+                <h2>{{ name }}</h2>
+                <h4>{{ date_added }}</h4>
+            </div>
+
+            <div id="post-content" class="pt-10">
+                {{ content|safe }}
+            </div>
+        </div>
+
+        {% extends "footer.html" %}
+        
+    </body>
+</html>

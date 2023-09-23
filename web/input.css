@@ -14,7 +14,7 @@
 
 @layer base {
     body {
-        @apply text-white bg-exeBlack;
+        @apply text-white bg-exeBlack selection:bg-goldyCream selection:text-exeBlack; 
     }
 
     h1, h2, h3, h4, h5 {
@@ -39,7 +39,7 @@
         @apply scale-[1.15];
     }    
     
-    #top-post h2, h4 {
+    #top-post h2, #top-post h4 {
         @apply text-center pt-2;
     }
 
@@ -58,17 +58,13 @@
         transition-transform ease-in-out duration-500 
         cursor-pointer overflow-hidden;
     }
-    
+
     article:hover {
         @apply scale-90;
     }
 
     article figure {
         @apply rounded-2xl overflow-hidden;
-    }
-
-    article div {
-        
     }
 
     article h2, h4 {
