@@ -96,7 +96,7 @@
         @apply text-2xl mobile:text-lg;
     }
 
-    #post-content h5 {
+    #post-content h5, #post-content h6, #post-content p {
         @apply text-xl mobile:text-base;
     }
 
