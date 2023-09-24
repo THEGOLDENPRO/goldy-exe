@@ -8,7 +8,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.exceptions import HTTPException
 from fastapi.responses import HTMLResponse
-from aiohttp import ClientSession
+from aiohttp import ClientSession, client_exceptions
 
 __all__ = ("app",)
 __version__ = "1.0.0"
@@ -21,7 +21,7 @@ app = FastAPI(
 API_URL = config("API_URL", "https://api.devgoldy.xyz/goldy-exe/v1")
 CDN_URL = config("CDN_URL", "https://api.devgoldy.xyz/goldy-exe/cdn")
 
-if config("DEV"):
+if config("DEV", False):
     API_URL = "http://127.0.0.1:8000"
     CDN_URL = "http://127.0.0.1:8001"
 
@@ -35,15 +35,14 @@ async def index(request: Request):
 
     async with http_client.request("GET", API_URL + "/posts") as r:
         if r.ok:
-            for post in await r.json():
-               posts.append(
-                   {
-                       "id": post.get("id"),
-                       "name": post.get("name"),
-                       "thumbnail_url": CDN_URL + post.get("thumbnail") if post.get("thumbnail") is not None else None,
-                       "date_added": datetime.fromisoformat(post.get("date_added")).strftime("%b %d %Y")
-                   }
-               )
+            posts = [
+                {
+                    "id": post.get("id"),
+                    "name": post.get("name"),
+                    "thumbnail_url": CDN_URL + post.get("thumbnail") if post.get("thumbnail") is not None else None,
+                    "date_added": datetime.fromisoformat(post.get("date_added")).strftime("%b %d %Y")
+                } for post in await r.json()
+            ]
 
     return templates.TemplateResponse(
         "home.html", {
