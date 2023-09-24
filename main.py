@@ -8,7 +8,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.exceptions import HTTPException
 from fastapi.responses import HTMLResponse
-from aiohttp import ClientSession, client_exceptions
+from aiohttp import ClientSession
 
 __all__ = ("app",)
 __version__ = "1.0.0"
