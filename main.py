@@ -25,9 +25,6 @@ if config("DEV"):
     API_URL = "http://127.0.0.1:8000"
     CDN_URL = "http://127.0.0.1:8001"
 
-    @app.get("/dev")
-    async def dev_check(): return True
-
 
 http_client = ClientSession()
 templates = Jinja2Templates(directory = "templates")
