@@ -4,7 +4,7 @@ services:
     goldy_exe:
         build: https://github.com/THEGOLDENPRO/goldy-exe.git
         ports:
-            - 8000:8000
+            - 8001:8000
         environment:
             DEV: false
-            ROOT_PATH: ""
+            ROOT_PATH: "/blogs"
