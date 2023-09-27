@@ -21,29 +21,7 @@ module.exports = {
             },
             dropShadow: {
                 "flicker": "0.06rem 0 0.06rem theme(colors.goldyPink), -0.125rem 0 0.06rem theme(colors.goldyOrangy.300);"
-            },
-            typography: ({ theme }) => ({
-                exeWhite: {
-                    css: {
-                        '--tw-prose-body': theme('colors.white'),
-                        '--tw-prose-headings': theme('colors.goldyCream'),
-                        '--tw-prose-lead': theme('colors.white'),
-                        '--tw-prose-links': theme('colors.goldyOrangy[800]'),
-                        '--tw-prose-bold': theme('colors.white'),
-                        '--tw-prose-counters': theme('colors.white'),
-                        '--tw-prose-bullets': theme('colors.white'),
-                        '--tw-prose-hr': theme('colors.white'),
-                        '--tw-prose-quotes': theme('colors.white'),
-                        '--tw-prose-quote-borders': theme('colors.white'),
-                        '--tw-prose-captions': theme('colors.white'),
-                        '--tw-prose-code': theme('colors.white'),
-                        '--tw-prose-pre-code': theme('colors.white'),
-                        '--tw-prose-pre-bg': theme('colors.black'),
-                        '--tw-prose-th-borders': theme('colors.white'),
-                        '--tw-prose-td-borders': theme('colors.white'),
-                    },
-                },
-            }),
+            }
         },
 
         screens: {

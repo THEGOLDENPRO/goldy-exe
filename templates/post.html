@@ -12,6 +12,10 @@
         <meta content="{{ thumbnail_url }}" property='og:image'>
 
         <link rel="stylesheet" href="../output.css">
+        <!-- highlight.js -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
     </head>
 
     <body class="pb-5">
@@ -33,14 +37,12 @@
                 <h4>{{ date_added }}</h4>
             </div>
 
-            <div id="post-content" class="
-            prose prose-exeWhite prose-p:m-0 prose-p:my-1 pt-10
-            ">
+            <div id="post-content" class="pt-10 w-3/4">
                 {{ content|safe }}
             </div>
         </div>
 
         {% extends "footer.html" %}
-        
+
     </body>
 </html>

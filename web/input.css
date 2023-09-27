@@ -20,6 +20,10 @@
     h1, h2, h3, h4, h5, h6, p, li {
         @apply font-typewriter tracking-widest;
     }
+
+    strong {
+        @apply font-semibold tracking-[0.15em];
+    }
 }
 
 @layer components {
@@ -80,32 +84,52 @@
     }
 
 
+    #post-content * {
+        @apply mb-4;
+    }
+
     #post-content h1 {
-        @apply font-bold text-5xl mobile:text-2xl mb-3;
+        @apply font-bold text-5xl mobile:text-2xl !mb-3;
     }
 
     #post-content h2 {
-        @apply font-semibold text-4xl mobile:text-xl m-0 mb-2;
+        @apply font-semibold text-4xl mobile:text-xl m-0 !mb-2;
     }
 
     #post-content h3 {
-        @apply text-3xl mobile:text-xl mb-1;
+        @apply text-3xl mobile:text-xl !mb-1 underline;
     }
 
     #post-content h4 {
-        @apply text-2xl mobile:text-lg;
+        @apply text-2xl mobile:text-lg underline;
+    }
+
+    #post-content h1, #post-content h2, #post-content h3, #post-content h4 {
+        @apply text-goldyCream;
     }
 
     #post-content h5, #post-content h6, #post-content p {
-        @apply text-xl mobile:text-base;
+        @apply text-lg mobile:text-base;
+    }
+
+    #post-content a {
+        @apply text-goldyOrangy-800;
     }
 
     #post-content img {
         @apply rounded-3xl my-3;
     }
 
+    #post-content ul {
+        @apply list-disc pl-8;
+    }
+
     #post-content ol {
         @apply list-decimal pl-8;
+    }
+
+    #post-content ul *, #post-content ol * {
+        @apply mb-0;
     }
 
     #post-content hr {
@@ -117,10 +141,11 @@
     }
 
     #post-content p code {
-        @apply bg-black p-2;
+        @apply bg-black px-2 py-1 rounded-xl;
     }
 
-    #post-content p code::before, #post-content p code::after {
-        @apply content-[""];
+    #post-content pre code {
+        @apply rounded-xl;
     }
+
 }
