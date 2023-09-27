@@ -19,7 +19,7 @@ app = FastAPI(
 )
 
 API_URL = config("API_URL", "https://api.devgoldy.xyz/goldy-exe/v1")
-CDN_URL = config("CDN_URL", "https://api.devgoldy.xyz/goldy-exe/cdn")
+CDN_URL = config("CDN_URL", "https://cdn.devgoldy.xyz/goldy-exe")
 
 if config("DEV", False):
     API_URL = "http://127.0.0.1:8000"

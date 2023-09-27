@@ -6,4 +6,5 @@ services:
         ports:
             - 8000:8000
         environment:
+            DEV: false
             ROOT_PATH: ""
