@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from datetime import datetime
 from decouple import config
 
@@ -13,9 +14,12 @@ from aiohttp import ClientSession
 __all__ = ("app",)
 __version__ = "1.0.0"
 
+ROOT_PATH = (lambda x: x if x is not None else "")(os.environ.get("ROOT_PATH")) # Like: /aghpb/v1
+
 app = FastAPI(
     docs_url = None, 
-    redoc_url = None
+    redoc_url = None,
+    root_path = ROOT_PATH
 )
 
 API_URL = config("API_URL", "https://api.devgoldy.xyz/goldy-exe/v1")
