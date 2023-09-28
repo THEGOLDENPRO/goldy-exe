@@ -67,14 +67,16 @@ async def read_item(request: Request, id: int):
 
         post = await r.json()
 
+    content: str = post["content"]
+
     return templates.TemplateResponse(
         "post.html", {
             "request": request,
             "id": id, 
             "name": post["name"],
-            "description": "test",
+            "short_description": content.split("<p>", 1)[0].split("</p>", 1)[0][:45].replace('"', ''),
             "date_added": datetime.fromisoformat(post["date_added"]).strftime("%b %d %Y"),
-            "content": post["content"],
+            "content": content,
             "rgb_colour": "9, 11, 17", # TODO: get rgb colour from thumbnail image.
             "thumbnail_url": CDN_URL + post["thumbnail"]
         }

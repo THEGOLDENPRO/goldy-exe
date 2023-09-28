@@ -5,11 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Goldy.exe</title>
 
-        <meta content="{{ name }}" property="og:title">
-        <meta content="{{ description }}" property="og:description">
-        <meta content="Goldy.exe" property="og:site_name">
+        <meta property="og:title" content="{{ name }}">
+        <meta property="og:site_name" content="Goldy.exe">
+        <meta property="og:description" content="{{ short_description }}">
         <meta name="theme-color" content="rgb({{ rgb_colour }})">
-        <meta content="{{ thumbnail_url }}" property='og:image'>
+        <meta property="og:image" content="{{ thumbnail_url }}">
+
+        <meta name="twitter:site" content="@GoldyTGP">
+        <meta name="twitter:title" content="{{ name }}">
+        <meta name="twitter:description" content="{{ short_description }}">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image:src" content="{{ thumbnail_url }}">
 
         <link rel="stylesheet" href="../output.css">
         <!-- highlight.js -->
