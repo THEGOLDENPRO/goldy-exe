@@ -52,7 +52,7 @@ async def index(request: Request):
     return templates.TemplateResponse(
         "home.html", {
             "request": request,
-            "root_path": "." if DEV else ROOT_PATH,
+            "root_path": ROOT_PATH,
             "top_post": None if posts == [] else posts[0],
             "posts": posts
         }
@@ -71,7 +71,7 @@ async def read_item(request: Request, id: int):
     return templates.TemplateResponse(
         "post.html", {
             "request": request,
-            "root_path": ".." if DEV else ROOT_PATH,
+            "root_path": "." if DEV else ROOT_PATH,
             "id": id, 
             "name": post["name"],
             "description": "test",
