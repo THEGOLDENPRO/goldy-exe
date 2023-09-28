@@ -21,16 +21,15 @@ module.exports = {
                 "flicker": "0.06rem 0 0.06rem theme(colors.goldyPink), -0.125rem 0 0.06rem theme(colors.goldyOrangy.300);"
             }
         },
-
         screens: {
             "mobile": {"max": "430px"},
             "tablet": {"max": "640px"},
             "desktop": {"max": "1280px"}
         },
-
         fontFamily: {
             "hacked": ["Hacked-KerX"],
-            "typewriter": ["atwriter"]
+            "typewriter": ["atwriter"],
+            "dosis": ["Dosis"]
         },
         animation: {
             "flicker": "flicker 0.00001s infinite ease-in",

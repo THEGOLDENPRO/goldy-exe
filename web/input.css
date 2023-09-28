@@ -12,17 +12,22 @@
     src: url("./fonts/atwriter.ttf");
 }
 
+@font-face {
+    font-family: "Dosis";
+    src: url("./fonts/Dosis.ttf");
+}
+
 @layer base {
     body {
         @apply text-white bg-exeBlack selection:bg-goldyCream selection:text-exeBlack; 
     }
 
     h1, h2, h3, h4, h5, h6, p, li {
-        @apply font-typewriter tracking-widest;
+        @apply font-dosis font-medium tracking-widest;
     }
 
     strong {
-        @apply font-semibold tracking-[0.15em];
+        @apply font-[900] tracking-[0.15em];
     }
 }
 
@@ -89,11 +94,11 @@
     }
 
     #post-content h1 {
-        @apply font-bold text-5xl mobile:text-2xl !mb-3;
+        @apply font-extrabold text-5xl mobile:text-2xl !mb-3;
     }
 
     #post-content h2 {
-        @apply font-semibold text-4xl mobile:text-xl m-0 !mb-2;
+        @apply font-bold text-4xl mobile:text-xl m-0 !mb-2;
     }
 
     #post-content h3 {
@@ -105,15 +110,15 @@
     }
 
     #post-content h1, #post-content h2, #post-content h3, #post-content h4 {
-        @apply text-goldyCream;
+        @apply text-goldyCream mt-5;
     }
 
     #post-content h5, #post-content h6, #post-content p {
-        @apply text-lg mobile:text-base;
+        @apply text-xl mobile:text-base;
     }
 
     #post-content a {
-        @apply text-goldyOrangy-800;
+        @apply text-goldyOrangy-800 font-bold;
     }
 
     #post-content img {
