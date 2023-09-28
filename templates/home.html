@@ -17,7 +17,7 @@
     <body>
         <header>
             <div class="text-7xl mobile:text-4xl font-bold font-hacked text-center py-5 select-none animate-flicker drop-shadow-flicker">
-                <a href=".">
+                <a href=".{{ root_path }}">
                     <span>Goldy.exe</span>
                 </a>
             </div>
@@ -26,7 +26,7 @@
         <div class="block w-[100%] pb-5">
             {% if posts|length > 0 %}
                 <div id="top-post">
-                    <a href="./post/{{ top_post.id }}">
+                    <a href=".{{ root_path }}/post/{{ top_post.id }}">
                         <figure>
                             <img src="{{ './image.png' if top_post.thumbnail_url is none else top_post.thumbnail_url }}" 
                             style="{{ 'filter: saturate(30%);' if top_post.thumbnail_url is none }}">
@@ -52,10 +52,10 @@
             <div id="latest-posts" class="px-[5%] mt-5 flex flex-wrap mobile:flex-col gap-4 justify-center mobile:items-center">
 
                 {% for post in posts %}
-                    <a href="./post/{{ post.id }}">
+                    <a href=".{{ root_path }}/post/{{ post.id }}">
                         <article>
                             <figure>
-                                <img src="{{ './image.png' if post.thumbnail_url is none else post.thumbnail_url }}" 
+                                <img src="{{ '.{{ root_path }}/image.png' if post.thumbnail_url is none else post.thumbnail_url }}" 
                                 style="{{ 'filter: saturate(30%);' if post.thumbnail_url is none }}">
                             </figure>
                             <div>
