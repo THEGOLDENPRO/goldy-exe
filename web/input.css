@@ -140,6 +140,10 @@
         @apply p-4 my-4 border-l-4 border-exeGray;
     }
 
+    #post-content blockquote p {
+        @apply !m-0;
+    }
+
     #post-content p code {
         @apply bg-black px-2 py-1 rounded-xl;
     }
