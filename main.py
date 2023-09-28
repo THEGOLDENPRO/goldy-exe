@@ -22,10 +22,11 @@ app = FastAPI(
     root_path = ROOT_PATH
 )
 
+DEV = config("DEV", False)
 API_URL = config("API_URL", "https://api.devgoldy.xyz/goldy-exe/v1")
 CDN_URL = config("CDN_URL", "https://cdn.devgoldy.xyz/goldy-exe")
 
-if config("DEV", False):
+if DEV:
     API_URL = "http://127.0.0.1:8000"
     CDN_URL = "http://127.0.0.1:8001"
 
@@ -70,7 +71,7 @@ async def read_item(request: Request, id: int):
     return templates.TemplateResponse(
         "post.html", {
             "request": request,
-            "root_path": ROOT_PATH,
+            "root_path": "." if DEV else ROOT_PATH,
             "id": id, 
             "name": post["name"],
             "description": "test",
