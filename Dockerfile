@@ -4,7 +4,6 @@ USER root
 
 WORKDIR /app
 
-# COPY /.git ./.git
 COPY /web ./web
 COPY /templates ./templates
 
