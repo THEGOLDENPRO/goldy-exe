@@ -1,7 +1,7 @@
 build: install-deps npm-install tailwind
 
 install-deps:
-	pip install -r requirements.txt
+	pip install -r requirements.txt -U
 
 npm-install:
 	npm i
