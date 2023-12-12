@@ -22,14 +22,8 @@ app = FastAPI(
     root_path = ROOT_PATH
 )
 
-DEV = config("DEV", False)
 API_URL = config("API_URL", "https://api.devgoldy.xyz/goldy-exe/v1")
 CDN_URL = config("CDN_URL", "https://cdn.devgoldy.xyz/goldy-exe")
-
-if DEV:
-    API_URL = "http://127.0.0.1:8000"
-    CDN_URL = "http://127.0.0.1:8001"
-
 
 http_client = ClientSession()
 templates = Jinja2Templates(directory = "templates")
